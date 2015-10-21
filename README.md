@@ -1,2 +1,2 @@
-Software Engineering Exercise Class WS15
-========================================
+Software Engineering Exercise Class WS15/16
+===========================================
