@@ -1,3 +1,4 @@
+#include <memory>
 #include "dollartoeuroconverter.hpp"
 
 int main(int argc, char* argv[])
@@ -12,7 +13,7 @@ int main(int argc, char* argv[])
    *
   */
 
-  dollarToEuroConverter* myConverter = new dollarToEuroConverter();
+  auto myConverter = std::make_shared<dollarToEuroConverter>();
   double aLotOfDollars = 10000;
   double aLotOfEuros = myConverter->convert(aLotOfDollars);
   std::cout << myConverter->toString() << " has converted "<< aLotOfDollars << " Dollar to " << aLotOfEuros <<" Euros!"<<std::endl;
