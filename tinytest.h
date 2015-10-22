@@ -29,6 +29,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 typedef int (*TinyTestFunc)(void);
 
@@ -54,6 +55,20 @@ typedef struct TinyTestRegistryStruct
 
 #ifndef TINYTEST_NOTESTING
 
+#define EPSILON 0.0000001
+
+#define TINYTEST_EQUAL_EPSILON_MSG(expected, actual, msg)               \
+  if ( fabs((expected) - (actual)) > EPSILON)                           \
+  {                                                                     \
+    printf("%s:%d expected %s = %f, actual: %s = %f\n",                 \
+           __FILE__, __LINE__, #expected, expected, #actual, actual);   \
+    if ( msg ) printf(msg);                                             \
+    return 0;                                                           \
+  }
+
+#define TINYTEST_EQUAL_EPSILON(expected, actual)                        \
+  TINYTEST_EQUAL_EPSILON_MSG(expected, actual, " ")
+
 #define TINYTEST_EQUAL_MSG(expected, actual, msg)                       \
   if ( (expected) != (actual) )                                         \
   {                                                                     \
@@ -64,7 +79,7 @@ typedef struct TinyTestRegistryStruct
   }
 
 #define TINYTEST_EQUAL(expected, actual)                                \
-  TINYTEST_EQUAL_MSG(expected, actual, NULL)
+  TINYTEST_EQUAL_MSG(expected, actual, " ")
 
 #define TINYTEST_STR_EQUAL_MSG(expected, actual, msg)                   \
   if ( strcmp((expected), (actual)) )                                   \
@@ -76,7 +91,7 @@ typedef struct TinyTestRegistryStruct
   }
 
 #define TINYTEST_STR_EQUAL(expected, actual)                            \
-  TINYTEST_STR_EQUAL_MSG(expected, actual, NULL)
+  TINYTEST_STR_EQUAL_MSG(expected, actual, " ")
 
 #define TINYTEST_ASSERT_MSG(assertion, msg)                             \
   if ( !(assertion) )                                                   \
@@ -88,7 +103,7 @@ typedef struct TinyTestRegistryStruct
   }
 
 #define TINYTEST_ASSERT(assertion)                                      \
-  TINYTEST_ASSERT_MSG(assertion, NULL)
+  TINYTEST_ASSERT_MSG(assertion, " ")
 
 #define TINYTEST_DECLARE_SUITE(suiteName)                               \
   void Suite##suiteName(TinyTestRegistry* registry)
