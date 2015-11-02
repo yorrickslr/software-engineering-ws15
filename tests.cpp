@@ -37,56 +37,71 @@ int DollarToEuro3() {
 }
 
 int DollarToYen1() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+  DollarToYenConverter converter;
+  TINYTEST_EQUAL_EPSILON(0.0,converter.convert(0.0));
   return 1;
 }
 int DollarToYen2() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+  DollarToYenConverter converter;
+  TINYTEST_EQUAL_EPSILON(120.744501,converter.convert(1.0));
   return 1;
 }
 int DollarToYen3() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+  DollarToYenConverter converter;
+  TINYTEST_EQUAL_EPSILON(5071.269042,converter.convert(42.0));
   return 1;
 }
 
 // LengthConverter
+// Ich glaub es wäre besser in Meter zu konvertieren, weißte? 
+// Wegen Metrisches System rules und so. Keine Sau braucht Meilen
+// Aber alle brauchen Meter! :D Nur so ’n Vorschlag
 
-int MetersToMiles1() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+int MilesToMeters1() {
+  MilesToMetersConverter converter;
+  TINYTEST_EQUAL_EPSILON(0.0,converter.convert(0.0));
   return 1;
 }
-int MetersToMiles2() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+int MilesToMeters2() {
+  MilesToMetersConverter converter;
+  TINYTEST_EQUAL_EPSILON(1609.344,converter.convert(1.0));
   return 1;
 }
-int MetersToMiles3() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+int MilesToMeters3() {
+  MilesToMetersConverter converter;
+  TINYTEST_EQUAL_EPSILON(21130.68672,converter.convert(13.13));
   return 1;
 }
 
-int MetersToYards1() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+int YardsToMeters1() {
+  YardsToMetersConverter converter;
+  TINYTEST_EQUAL_EPSILON(0.0,converter.convert(0.0));
   return 1;
 }
-int MetersToYards2() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+int YardsToMeters2() {
+  YardsToMetersConverter converter;
+  TINYTEST_EQUAL_EPSILON(0.9144,converter.convert(1.0));
   return 1;
 }
-int MetersToYards3() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+int YardsToMeters3() {
+  YardsToMetersConverter converter;
+  TINYTEST_EQUAL_EPSILON(609.5993904000001,converter.convert(666.666));
   return 1;
 }
 
 int InchesToCentimeter1() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+  InchesToCentimeterConverter converter;
+  TINYTEST_EQUAL_EPSILON(0.o,converter.convert(0.0));
   return 1;
 }
 int InchesToCentimeter2() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+  InchesToCentimeterConverter converter;
+  TINYTEST_EQUAL_EPSILON(2.54,converter.convert(1.0));
   return 1;
 }
 int InchesToCentimeter3() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+  InchesToCentimeterConverter converter;
+  TINYTEST_EQUAL_EPSILON(109.22,converter.convert(43.0));
   return 1;
 }
 
