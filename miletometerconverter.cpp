@@ -1,5 +1,10 @@
 #include <miletometerconverter.hpp>
 
+MilesToMetersConverter::MilesToMetersConverter() {
+  
+}
+
+
 double MilesToMetersConverter::convert(double inMiles){
   return inMiles*1609.344;
 }

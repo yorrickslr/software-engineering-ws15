@@ -1,5 +1,10 @@
 #include <yardtometerconverter.hpp>
 
+YardsToMetersConverter::YardsToMetersConverter() {
+  
+}
+
+
 double YardsToMetersConverter::convert(double inYards){
   return inYards*0.9144;
 }

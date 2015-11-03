@@ -1,5 +1,10 @@
 #include <inchtocentimeterconverter.hpp>
 
+InchToCentimetersConverter::InchToCentimetersConverter(){
+  
+}
+
+
 double InchToCentimetersConverter::convert(double inInch){
   return inInch*2.54;
 }
