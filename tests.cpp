@@ -27,7 +27,7 @@ int DollarToEuro1() {
 }
 int DollarToEuro2() {
   DollarToEuroConverter converter;
-  TINYTEST_EQUAL_EPSILON(-0.906786,converter.convert(1.0));
+  TINYTEST_EQUAL_EPSILON(-0.906786,converter.convert(-1.0));
   return 1;
 }
 int DollarToEuro3() {
@@ -43,19 +43,16 @@ int DollarToYen1() {
 }
 int DollarToYen2() {
   DollarToYenConverter converter;
-  TINYTEST_EQUAL_EPSILON(120.744501,converter.convert(1.0));
+  TINYTEST_EQUAL_EPSILON(-120.744501,converter.convert(-1.0)); //control
   return 1;
 }
 int DollarToYen3() {
   DollarToYenConverter converter;
-  TINYTEST_EQUAL_EPSILON(5071.269042,converter.convert(42.0));
+  TINYTEST_EQUAL_EPSILON(5071.269042,converter.convert(42.0)); //control
   return 1;
 }
 
 // LengthConverter
-// Ich glaub es wäre besser in Meter zu konvertieren, weißte? 
-// Wegen Metrisches System rules und so. Keine Sau braucht Meilen
-// Aber alle brauchen Meter! :D Nur so ’n Vorschlag
 
 int MilesToMeters1() {
   MilesToMetersConverter converter;
@@ -64,7 +61,7 @@ int MilesToMeters1() {
 }
 int MilesToMeters2() {
   MilesToMetersConverter converter;
-  TINYTEST_EQUAL_EPSILON(1609.344,converter.convert(1.0));
+  TINYTEST_EQUAL_EPSILON(-1609.344,converter.convert(-1.0));
   return 1;
 }
 int MilesToMeters3() {
@@ -80,7 +77,7 @@ int YardsToMeters1() {
 }
 int YardsToMeters2() {
   YardsToMetersConverter converter;
-  TINYTEST_EQUAL_EPSILON(0.9144,converter.convert(1.0));
+  TINYTEST_EQUAL_EPSILON(-0.9144,converter.convert(-1.0));
   return 1;
 }
 int YardsToMeters3() {
@@ -91,12 +88,12 @@ int YardsToMeters3() {
 
 int InchesToCentimeter1() {
   InchesToCentimeterConverter converter;
-  TINYTEST_EQUAL_EPSILON(0.o,converter.convert(0.0));
+  TINYTEST_EQUAL_EPSILON(0.0,converter.convert(0.0));
   return 1;
 }
 int InchesToCentimeter2() {
   InchesToCentimeterConverter converter;
-  TINYTEST_EQUAL_EPSILON(2.54,converter.convert(1.0));
+  TINYTEST_EQUAL_EPSILON(-2.54,converter.convert(-1.0));
   return 1;
 }
 int InchesToCentimeter3() {
@@ -108,41 +105,50 @@ int InchesToCentimeter3() {
 // TemperatureConverter
 
 int CelciusToFahrenheit1() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+  CelsiusToFahrenheitConveter converter;
+  TINYTEST_EQUAL_EPSILON(32.0,converter.convert(0.0));
   return 1;
 }
 int CelciusToFahrenheit2() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+  CelsiusToFahrenheitConveter converter;
+  TINYTEST_EQUAL_EPSILON(30.2,converter.convert(-1.0));
   return 1;
 }
 int CelciusToFahrenheit3() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+  CelsiusToFahrenheitConveter converter;
+  TINYTEST_EQUAL_EPSILON(107.6,converter.convert(42.0));
   return 1;
 }
 
 int FahrenheitToCelsius1() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+  FahrenheitToCelsiusConverter converter;
+  TINYTEST_EQUAL_EPSILON(-17.777778,converter.convert(0.0));
   return 1;
 }
 int FahrenheitToCelsius2() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+  FahrenheitToCelsiusConverter converter;
+  TINYTEST_EQUAL_EPSILON(-18.333333,converter.convert(-1.0));
   return 1;
 }
 int FahrenheitToCelsius3() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+  FahrenheitToCelsiusConverter converter;
+  TINYTEST_EQUAL_EPSILON(5.555556,converter.convert(42.0));
   return 1;
 }
 
 int CelsiusToKelvin1() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+  CelsiusToKelvinConverter converter;
+  TINYTEST_EQUAL_EPSILON(273.15,converter.convert(0.0));
   return 1;
 }
 int CelsiusToKelvin2() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+  FahrenheitToCelsiusConverter converter;
+  TINYTEST_EQUAL_EPSILON(272.15,converter.convert(-1.0));
   return 1;
 }
 int CelsiusToKelvin3() {
-  TINYTEST_EQUAL_EPSILON(0,0);
+  FahrenheitToCelsiusConverter converter;
+  TINYTEST_EQUAL_EPSILON(315.15,converter.convert(42.0));
   return 1;
 }
 
@@ -158,12 +164,12 @@ TINYTEST_START_SUITE(Tests);
   TINYTEST_ADD_TEST(DollarToYen2);
   TINYTEST_ADD_TEST(DollarToYen3);
   //LengthConverter
-  TINYTEST_ADD_TEST(MetersToMiles1);
-  TINYTEST_ADD_TEST(MetersToMiles2);
-  TINYTEST_ADD_TEST(MetersToMiles3);
-  TINYTEST_ADD_TEST(MetersToYards1);
-  TINYTEST_ADD_TEST(MetersToYards2);
-  TINYTEST_ADD_TEST(MetersToYards3);
+  TINYTEST_ADD_TEST(MilesToMeters1);
+  TINYTEST_ADD_TEST(MilesToMeters2);
+  TINYTEST_ADD_TEST(MilesToMeters3);
+  TINYTEST_ADD_TEST(YardsToMeters1);
+  TINYTEST_ADD_TEST(YardsToMeters2);
+  TINYTEST_ADD_TEST(YardsToMeters3);
   TINYTEST_ADD_TEST(InchesToCentimeter1);
   TINYTEST_ADD_TEST(InchesToCentimeter2);
   TINYTEST_ADD_TEST(InchesToCentimeter3);
