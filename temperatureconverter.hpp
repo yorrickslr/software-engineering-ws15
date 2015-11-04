@@ -3,12 +3,12 @@
 
 #include "unitconverter.hpp"
 
-class TepmeratureConverter : public UnitConverter {
+class TemperatureConverter : public UnitConverter {
   public:
-    TepmeratureConverter();
+    TemperatureConverter();
     virtual double convert(double inValue) = 0;
-    virtual std::string toString() = 0;
-    virtual void print() = 0;
+    virtual std::string toString() const = 0;
+    virtual void print() const = 0;
 };
 
 #endif // TEMPERATURECONVERTER_H

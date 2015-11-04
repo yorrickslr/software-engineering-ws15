@@ -5,13 +5,13 @@ EuroToDollarConverter::EuroToDollarConverter()
 }
 
 double EuroToDollarConverter::convert(double inValue) {
-	return inValue / 10;
+  return inValue * 1.102796;
 }
 
-std::string EuroToDollarConverter::toString() {
-	return "Euro to Dollar Converter";
+std::string EuroToDollarConverter::toString() const {
+  return "Euro to Dollar Converter";
 }
 
-void print() {
-	std::cout << toString();
+void EuroToDollarConverter::print() const {
+  std::cout << toString();
 }

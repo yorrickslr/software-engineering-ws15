@@ -1,4 +1,4 @@
-#include <celsiustokelvinconverter.hpp>
+#include "celsiustokelvinconverter.hpp"
 
 CelsiusToKelvinConverter::CelsiusToKelvinConverter(){
   
@@ -6,7 +6,7 @@ CelsiusToKelvinConverter::CelsiusToKelvinConverter(){
 
 
 double CelsiusToKelvinConverter::convert(double inCelsius){
-  return inCelsius*1.8 + 32;
+  return inCelsius + 273.15;
 }
 
 

@@ -6,9 +6,9 @@
 class YardsToMetersConverter : public LengthConverter {
   public:
     YardsToMetersConverter();
-    double convert(double inYards);
-    std::string toString() const;
-    void print() const;
+    double convert(double inYards) override;
+    std::string toString() const override;
+    void print() const override;
 };
 
 #endif // YARDTOMETERCONVERTER_H
