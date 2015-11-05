@@ -9,6 +9,8 @@ class DollarToYenConverter : public CurrencyConverter {
     double convert(double toYen) override;
     std::string toString() const override;
     void print() const override;
+    std::string fromUnit() const override;
+    std::string toUnit() const override;
 };
 
 #endif // DOLLARTOYENCONVERTER_H

@@ -15,3 +15,11 @@ std::string FahrenheitToCelsiusConverter::toString() const {
 void FahrenheitToCelsiusConverter::print() const {
   std::cout << toString();
 }
+
+std::string FahrenheitToCelsiusConverter::fromUnit() const {
+  return "Fahrenheit";
+}
+
+std::string FahrenheitToCelsiusConverter::toUnit() const {
+  return "Celsius";
+}

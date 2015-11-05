@@ -9,6 +9,8 @@ class InchToCentimetersConverter : public LengthConverter {
     double convert(double inInch) override;
     std::string toString() const override;
     void print() const override;
+    std::string fromUnit() const override;
+    std::string toUnit() const override;
 };
 
 #endif // INCHTOCENTIMETERCONVERTER_H

@@ -7,9 +7,9 @@ DollarToEuroConverter::DollarToEuroConverter()
 }
 
 /*In: double value of dollars
- *Out: Euro value of input dollars as of 9.10.15
+ *Out: Euro value of input dollars as of 2.11.15
  */
- 
+
 double DollarToEuroConverter::convert(double inputDollars) {
   return inputDollars*0.906786;
 }
@@ -20,4 +20,12 @@ std::string DollarToEuroConverter::toString() const {
 
 void DollarToEuroConverter::print() const {
   std::cout << toString();
+}
+
+std::string DollarToEuroConverter::fromUnit() const {
+  return "Dollar";
+}
+
+std::string DollarToEuroConverter::toUnit() const {
+  return "Euro";
 }

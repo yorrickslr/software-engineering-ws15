@@ -18,3 +18,11 @@ std::string InchToCentimetersConverter::toString() const {
 void InchToCentimetersConverter::print() const {
   std::cout << toString();
 }
+
+std::string InchToCentimetersConverter::fromUnit() const {
+  return "Inch";
+}
+
+std::string InchToCentimetersConverter::toUnit() const {
+  return "Centimeter";
+}

@@ -1,7 +1,7 @@
 #include "yardtometerconverter.hpp"
 
-YardsToMetersConverter::YardsToMetersConverter() {
-  
+YardsToMetersConverter::YardsToMetersConverter()
+{
 }
 
 double YardsToMetersConverter::convert(double inYards){
@@ -14,4 +14,12 @@ std::string YardsToMetersConverter::toString() const {
 
 void YardsToMetersConverter::print() const {
   std::cout << toString();
+}
+
+std::string YardsToMetersConverter::fromUnit() const {
+  return "Yard";
+}
+
+std::string YardsToMetersConverter::toUnit() const {
+  return "Meter";
 }
