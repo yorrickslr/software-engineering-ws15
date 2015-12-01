@@ -23,3 +23,7 @@ std::string CelsiusToKelvinConverter::fromUnit() const {
 std::string CelsiusToKelvinConverter::toUnit() const {
   return "Kelvin";
 }
+
+UnitConverter* CelsiusToKelvinConverter::clone() {
+  return new CelsiusToKelvinConverter;
+}

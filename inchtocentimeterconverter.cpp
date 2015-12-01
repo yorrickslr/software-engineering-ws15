@@ -26,3 +26,7 @@ std::string InchToCentimetersConverter::fromUnit() const {
 std::string InchToCentimetersConverter::toUnit() const {
   return "Centimeter";
 }
+
+UnitConverter* InchToCentimetersConverter::clone() {
+  return new InchToCentimetersConverter;
+}

@@ -12,6 +12,7 @@ class DollarToEuroConverter : public CurrencyConverter
     void print() const override;
     std::string fromUnit() const override;
     std::string toUnit() const override;
+    UnitConverter* clone() override;
 };
 
 #endif // DOLLARTOEUROCONVERTER_H

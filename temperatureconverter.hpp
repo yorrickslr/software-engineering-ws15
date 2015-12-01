@@ -11,6 +11,7 @@ class TemperatureConverter : public UnitConverter {
     virtual void print() const = 0;
     virtual std::string fromUnit() const = 0;
     virtual std::string toUnit() const = 0;
+    virtual UnitConverter* clone() = 0;
 };
 
 #endif // TEMPERATURECONVERTER_H

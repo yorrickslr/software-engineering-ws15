@@ -23,3 +23,7 @@ std::string FahrenheitToCelsiusConverter::fromUnit() const {
 std::string FahrenheitToCelsiusConverter::toUnit() const {
   return "Celsius";
 }
+
+UnitConverter* FahrenheitToCelsiusConverter::clone() {
+  return new FahrenheitToCelsiusConverter;
+}

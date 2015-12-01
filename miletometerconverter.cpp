@@ -23,3 +23,7 @@ std::string MilesToMetersConverter::fromUnit() const {
 std::string MilesToMetersConverter::toUnit() const {
   return "Meter";
 }
+
+UnitConverter* MilesToMetersConverter::clone() {
+  return new MilesToMetersConverter;
+}

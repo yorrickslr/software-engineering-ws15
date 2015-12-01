@@ -23,3 +23,7 @@ std::string YardsToMetersConverter::fromUnit() const {
 std::string YardsToMetersConverter::toUnit() const {
   return "Meter";
 }
+
+UnitConverter* YardsToMetersConverter::clone() {
+  return new YardsToMetersConverter;
+}

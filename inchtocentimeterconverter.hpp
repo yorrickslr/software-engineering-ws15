@@ -11,6 +11,7 @@ class InchToCentimetersConverter : public LengthConverter {
     void print() const override;
     std::string fromUnit() const override;
     std::string toUnit() const override;
+    UnitConverter* clone() override;
 };
 
 #endif // INCHTOCENTIMETERCONVERTER_H

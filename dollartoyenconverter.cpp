@@ -23,3 +23,7 @@ std::string DollarToYenConverter::fromUnit() const {
 std::string DollarToYenConverter::toUnit() const {
   return "Yen";
 }
+
+UnitConverter* DollarToYenConverter::clone() {
+  return new DollarToYenConverter;
+}

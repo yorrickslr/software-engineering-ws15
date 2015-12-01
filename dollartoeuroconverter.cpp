@@ -29,3 +29,7 @@ std::string DollarToEuroConverter::fromUnit() const {
 std::string DollarToEuroConverter::toUnit() const {
   return "Euro";
 }
+
+UnitConverter* DollarToEuroConverter::clone() {
+  return new DollarToEuroConverter;
+}
