@@ -4,7 +4,7 @@ MilesToMetersConverter::MilesToMetersConverter()
 {
 }
 
-double MilesToMetersConverter::convert(double inMiles){
+double MilesToMetersConverter::convert(double inMiles) const {
   return inMiles*1609.344;
 }
 

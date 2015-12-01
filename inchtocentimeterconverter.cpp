@@ -5,7 +5,7 @@ InchToCentimetersConverter::InchToCentimetersConverter(){
 }
 
 
-double InchToCentimetersConverter::convert(double inInch){
+double InchToCentimetersConverter::convert(double inInch) const {
   return inInch*2.54;
 }
 

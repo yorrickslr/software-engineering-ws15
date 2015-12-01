@@ -4,7 +4,7 @@ DollarToYenConverter::DollarToYenConverter()
 {
 }
 
-double DollarToYenConverter::convert(double toYen) {
+double DollarToYenConverter::convert(double toYen) const {
   return toYen * 120.684499;
 }
 

@@ -10,7 +10,7 @@ DollarToEuroConverter::DollarToEuroConverter()
  *Out: Euro value of input dollars as of 2.11.15
  */
 
-double DollarToEuroConverter::convert(double inputDollars) {
+double DollarToEuroConverter::convert(double inputDollars) const {
   return inputDollars*0.906786;
 }
 

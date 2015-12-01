@@ -4,7 +4,7 @@ YardsToMetersConverter::YardsToMetersConverter()
 {
 }
 
-double YardsToMetersConverter::convert(double inYards){
+double YardsToMetersConverter::convert(double inYards) const {
   return inYards*0.9144;
 }
 

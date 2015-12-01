@@ -4,7 +4,7 @@ EuroToDollarConverter::EuroToDollarConverter()
 {
 }
 
-double EuroToDollarConverter::convert(double inValue) {
+double EuroToDollarConverter::convert(double inValue) const {
   return inValue * 1.102796;
 }
 

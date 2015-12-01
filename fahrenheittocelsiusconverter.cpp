@@ -4,7 +4,7 @@ FahrenheitToCelsiusConverter::FahrenheitToCelsiusConverter()
 {
 }
 
-double FahrenheitToCelsiusConverter::convert(double inFahrenheit){
+double FahrenheitToCelsiusConverter::convert(double inFahrenheit) const {
   return (inFahrenheit-32.0)*(5.0/9.0);
 }
 

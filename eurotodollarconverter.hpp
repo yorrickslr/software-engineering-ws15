@@ -6,7 +6,7 @@
 class EuroToDollarConverter : public CurrencyConverter {
   public:
     EuroToDollarConverter();
-    double convert(double inValue) override;
+    double convert(double inValue) const override;
     std::string toString() const override;
     void print() const override;
     std::string fromUnit() const override;
