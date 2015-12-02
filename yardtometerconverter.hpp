@@ -3,9 +3,9 @@
 
 #include "lengthconverter.hpp"
 
-class YardsToMetersConverter : public LengthConverter {
+class YardToMeterConverter : public LengthConverter {
   public:
-    YardsToMetersConverter();
+    YardToMeterConverter();
     double convert(double inYards) const override;
     std::string toString() const override;
     void print() const override;

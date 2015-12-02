@@ -3,9 +3,9 @@
 
 #include "lengthconverter.hpp"
 
-class MilesToMetersConverter : public LengthConverter {
+class MilesToMeterConverter : public LengthConverter {
   public:
-    MilesToMetersConverter();
+    MilesToMeterConverter();
     double convert(double inMiles) const override;
     std::string toString() const override;
     void print() const override;

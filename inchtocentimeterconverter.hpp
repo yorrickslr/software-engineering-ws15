@@ -3,9 +3,9 @@
 
 #include "lengthconverter.hpp"
 
-class InchToCentimetersConverter : public LengthConverter {
+class InchToCentimeterConverter : public LengthConverter {
   public:
-    InchToCentimetersConverter();
+    InchToCentimeterConverter();
     double convert(double inInch) const override;
     std::string toString() const override;
     void print() const override;

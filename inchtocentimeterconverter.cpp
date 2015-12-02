@@ -1,32 +1,32 @@
 #include "inchtocentimeterconverter.hpp"
 
-InchToCentimetersConverter::InchToCentimetersConverter(){
+InchToCentimeterConverter::InchToCentimeterConverter(){
   
 }
 
 
-double InchToCentimetersConverter::convert(double inInch) const {
+double InchToCentimeterConverter::convert(double inInch) const {
   return inInch*2.54;
 }
 
 
-std::string InchToCentimetersConverter::toString() const {
+std::string InchToCentimeterConverter::toString() const {
   return "Inch to Centimeter Converter";
 }
 
 
-void InchToCentimetersConverter::print() const {
+void InchToCentimeterConverter::print() const {
   std::cout << toString();
 }
 
-std::string InchToCentimetersConverter::fromUnit() const {
+std::string InchToCentimeterConverter::fromUnit() const {
   return "Inch";
 }
 
-std::string InchToCentimetersConverter::toUnit() const {
+std::string InchToCentimeterConverter::toUnit() const {
   return "Centimeter";
 }
 
-UnitConverter* InchToCentimetersConverter::clone() {
-  return new InchToCentimetersConverter;
+UnitConverter* InchToCentimeterConverter::clone() {
+  return new InchToCentimeterConverter;
 }

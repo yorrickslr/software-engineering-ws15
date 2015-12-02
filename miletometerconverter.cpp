@@ -1,29 +1,29 @@
 #include "miletometerconverter.hpp"
 
-MilesToMetersConverter::MilesToMetersConverter()
+MilesToMeterConverter::MilesToMeterConverter()
 {
 }
 
-double MilesToMetersConverter::convert(double inMiles) const {
+double MilesToMeterConverter::convert(double inMiles) const {
   return inMiles*1609.344;
 }
 
-std::string MilesToMetersConverter::toString() const {
+std::string MilesToMeterConverter::toString() const {
   return "Miles to Meter Converter";
 }
 
-void MilesToMetersConverter::print() const {
+void MilesToMeterConverter::print() const {
   std::cout << toString();
 }
 
-std::string MilesToMetersConverter::fromUnit() const {
+std::string MilesToMeterConverter::fromUnit() const {
   return "Mile";
 }
 
-std::string MilesToMetersConverter::toUnit() const {
+std::string MilesToMeterConverter::toUnit() const {
   return "Meter";
 }
 
-UnitConverter* MilesToMetersConverter::clone() {
-  return new MilesToMetersConverter;
+UnitConverter* MilesToMeterConverter::clone() {
+  return new MilesToMeterConverter;
 }

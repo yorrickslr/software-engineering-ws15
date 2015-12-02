@@ -12,6 +12,8 @@
 #include "fahrenheittocelsiusconverter.hpp"
 #include "celsiustokelvinconverter.hpp"
 
+#include "converterfactory.hpp"
+
 int main(int argc, char* argv[])
 {
   std::string conversion, value;
@@ -35,11 +37,11 @@ int main(int argc, char* argv[])
     converter = std::make_shared<DollarToYenConverter>();
   // lengthconversion
   } else if(conversion=="MileToMeter" || conversion=="MileToMeterConverter") {
-    converter = std::make_shared<MilesToMetersConverter>();
+    converter = std::make_shared<MilesToMeterConverter>();
   } else if(conversion=="YardToMeter" || conversion=="YardToMeterConverter") {
-    converter = std::make_shared<YardsToMetersConverter>();
+    converter = std::make_shared<YardToMeterConverter>();
   } else if(conversion=="InchToCentimeter" || conversion=="InchToCentimeterConverter") {
-    converter = std::make_shared<InchToCentimetersConverter>();
+    converter = std::make_shared<InchToCentimeterConverter>();
   // temperatureconversion
   } else if(conversion=="CelsiusToFahrenheit" || conversion=="CelsiusToFahrenheitConverter") {
     converter = std::make_shared<CelsiusToFahrenheitConverter>();

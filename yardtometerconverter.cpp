@@ -1,29 +1,29 @@
 #include "yardtometerconverter.hpp"
 
-YardsToMetersConverter::YardsToMetersConverter()
+YardToMeterConverter::YardToMeterConverter()
 {
 }
 
-double YardsToMetersConverter::convert(double inYards) const {
-  return inYards*0.9144;
+double YardToMeterConverter::convert(double inYard) const {
+  return inYard*0.9144;
 }
 
-std::string YardsToMetersConverter::toString() const {
-  return "Yards to Meter Converter";
+std::string YardToMeterConverter::toString() const {
+  return "Yard to Meter Converter";
 }
 
-void YardsToMetersConverter::print() const {
+void YardToMeterConverter::print() const {
   std::cout << toString();
 }
 
-std::string YardsToMetersConverter::fromUnit() const {
+std::string YardToMeterConverter::fromUnit() const {
   return "Yard";
 }
 
-std::string YardsToMetersConverter::toUnit() const {
+std::string YardToMeterConverter::toUnit() const {
   return "Meter";
 }
 
-UnitConverter* YardsToMetersConverter::clone() {
-  return new YardsToMetersConverter;
+UnitConverter* YardToMeterConverter::clone() {
+  return new YardToMeterConverter;
 }
