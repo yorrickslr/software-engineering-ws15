@@ -26,8 +26,14 @@ int main(int argc, char* argv[])
     std::cout << "ERROR while reading arguments" << std::endl;
     return 0;
   }
+  // ConverterFactory* factory;
+  // std::cout << "created converter" << std::endl;
+  UnitConverter* converter = ConverterFactory::instance()->create(conversion);
+  std::cout << "created converter" << std::endl;
 
-  std::shared_ptr<UnitConverter> converter;
+
+  // From Assignment 2
+  /*std::shared_ptr<UnitConverter> converter;
   // currencyconversion
   if(conversion=="DollarToEuro" || conversion=="DollarToEuroConverter") {
     converter = std::make_shared<DollarToEuroConverter>();
@@ -54,7 +60,7 @@ int main(int argc, char* argv[])
     std::cout << "ERROR due to unknown converter '" << conversion << "', showing readme..." << std::endl << std::endl;
     system("more README.md");
     return 0;
-  }
+  }*/
   std::cout << converter->toString() << " has converted " 
     << value << " " << converter->fromUnit() << " to " 
     << converter->convert(std::stod(value)) << " " << converter->toUnit() << std::endl;

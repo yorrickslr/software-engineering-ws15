@@ -22,35 +22,42 @@ public:
   static ConverterFactory* instance()  {
     if (instance_ == nullptr)
     {
-      instance_ = new ConverterFactory{};
+      instance_ = new ConverterFactory;
     }
     return instance_;
   }
 
   static UnitConverter* create(std::string const& converter_name) {
-    return prototypes_[converter_name]->clone();
+    auto iter = prototypes_.find(converter_name);
+    if (iter != prototypes_.end())
+    {
+      return iter->second->clone();
+    }
+    std::cout << "Well, we’re very sorry, but this converter is not supported. Try again" << std::endl;
+    exit(1);
+    return nullptr;
   }
-  
 
+  static std::map<std::string,UnitConverter*> prototypes_;
 
 private:
-  ConverterFactory();
+  ConverterFactory() {}
   ~ConverterFactory();
   static ConverterFactory* instance_;
-  static std::map<std::string,UnitConverter*> prototypes_{
-      {"Celsius to Fahrenheit Converter", new CelsiusToFahrenheitConverter},
-      {"Fahrenheit to Celsius Converter", new FahrenheitToCelsiusConverter},
-      {"Celsius to Kelvin Converter", new CelsiusToKelvinConverter},
-      {"Dollar to Euro Converter", new DollarToEuroConverter},
-      {"Euro to Dollar Converter", new EuroToDollarConverter},
-      {"Dollar to Yen Converter", new DollarToYenConverter},
-      {"Inch to Centimeter Converter", new InchToCentimeterConverter},
-      {"Yard to Meter Converter", new YardToMeterConverter},
-      {"Miles to Meter Converter", new MilesToMeterConverter}
-    };
+  
 };
 
 ConverterFactory* ConverterFactory::instance_ = NULL;
-
+std::map<std::string,UnitConverter*> ConverterFactory::prototypes_{
+    {"CelsiusToFahrenheit", new CelsiusToFahrenheitConverter},
+    {"FahrenheitToCelsius", new FahrenheitToCelsiusConverter},
+    {"CelsiusToKelvin", new CelsiusToKelvinConverter},
+    {"DollarToEuro", new DollarToEuroConverter},
+    {"EuroToDollar", new EuroToDollarConverter},
+    {"DollarToYen", new DollarToYenConverter},
+    {"InchToCentimeter", new InchToCentimeterConverter},
+    {"YardToMeter", new YardToMeterConverter},
+    {"MilesToMeter", new MilesToMeterConverter}
+  };
 
 #endif
