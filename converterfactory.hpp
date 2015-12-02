@@ -16,10 +16,6 @@
 #include <map>
 
 
-
-ConverterFactory* ConverterFactory::s_instance = NULL;
-
-
 class ConverterFactory
 {
 public:
@@ -28,17 +24,20 @@ public:
     {
       instance_ = new ConverterFactory{};
     }
+    return instance_;
   }
 
-  static UnitConverter* create(std::string const& converter_name) const{
+  static UnitConverter* create(std::string const& converter_name) {
     return prototypes_[converter_name]->clone();
   }
-  static ConverterFactory* instance_;
+  
 
 
 private:
-  ConverterFactory() : 
-    prototypes_{
+  ConverterFactory();
+  ~ConverterFactory();
+  static ConverterFactory* instance_;
+  static std::map<std::string,UnitConverter*> prototypes_{
       {"Celsius to Fahrenheit Converter", new CelsiusToFahrenheitConverter},
       {"Fahrenheit to Celsius Converter", new FahrenheitToCelsiusConverter},
       {"Celsius to Kelvin Converter", new CelsiusToKelvinConverter},
@@ -48,12 +47,10 @@ private:
       {"Inch to Centimeter Converter", new InchToCentimeterConverter},
       {"Yard to Meter Converter", new YardToMeterConverter},
       {"Miles to Meter Converter", new MilesToMeterConverter}
-    }
-  ~ConverterFactory();
-  static std::map<std::string,UnitConverter*> prototypes_;
+    };
 };
 
-
+ConverterFactory* ConverterFactory::instance_ = NULL;
 
 
 #endif
