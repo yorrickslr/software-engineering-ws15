@@ -33,7 +33,7 @@ public:
     {
       return iter->second->clone();
     }
-    std::cout << "Well, we are very sorry, but this converter is not supported. Try again" << std::endl;
+    std::cout << "Well, we are very sorry, but this converter is not supported. Try again!" << std::endl;
     exit(1);
     return nullptr;
   }
