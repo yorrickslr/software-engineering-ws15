@@ -12,10 +12,12 @@
 #include "fahrenheittocelsiusconverter.hpp"
 #include "celsiustokelvinconverter.hpp"
 
-#include "converterfactory.hpp"
+// #include "converterfactory.hpp"
+
+#include <iostream>
 
 int main(int argc, char* argv[])
-{
+{;
   std::string conversion, value;
   try {
     std::string tmp = argv[1];
@@ -24,11 +26,13 @@ int main(int argc, char* argv[])
     value = tmp;
   } catch(...) {
     std::cout << "ERROR while reading arguments" << std::endl;
-    return 0;
+    return 1;
   }
   // ConverterFactory* factory;
   // std::cout << "created converter" << std::endl;
-  UnitConverter* converter = ConverterFactory::instance()->create(conversion);
+  std::cout << "***DEBUG*** going to create object" << std::endl;
+  UnitConverter* converter = new EuroToDollarConverter(new DollarToEuroConverter());
+  // UnitConverter* converter = ConverterFactory::instance()->create(conversion);
   std::cout << "created converter" << std::endl;
 
 
@@ -64,7 +68,6 @@ int main(int argc, char* argv[])
   std::cout << converter->toString() << " has converted " 
     << value << " " << converter->fromUnit() << " to " 
     << converter->convert(std::stod(value)) << " " << converter->toUnit() << std::endl;
-
   /* old stuff
   auto myConverter = std::make_shared<DollarToEuroConverter>();
   double aLotOfDollars = 10000;

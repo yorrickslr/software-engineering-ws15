@@ -3,7 +3,7 @@
 
 #include "unitconverter.hpp"
 
-class LengthConverter : public UnitConverter {
+class LengthConverter : virtual public UnitConverter {
   public:
     LengthConverter();
     virtual double convert(double inValue) const = 0;
