@@ -1,4 +1,7 @@
 #include <memory>
+#include <deque>
+#include <sstream>
+#include <vector>
 
 #include "dollartoeuroconverter.hpp"
 #include "eurotodollarconverter.hpp"
@@ -12,15 +15,23 @@
 #include "fahrenheittocelsiusconverter.hpp"
 #include "celsiustokelvinconverter.hpp"
 
-#include "inversion.hpp"
+#include "converterfactory.hpp"
+#include "command.hpp"
 
-// #include "converterfactory.hpp"
-
-#include <iostream>
+//split method as on http://stackoverflow.com/questions/236129/split-a-string-in-c
+std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems) {
+    std::stringstream ss(s);
+    std::string item;
+    while (std::getline(ss, item, delim)) {
+        elems.push_back(item);
+        std::cout << item << std::endl;
+    }
+    return elems;
+}
 
 int main(int argc, char* argv[])
-{;
-  std::string conversion, value;
+{
+  /*std::string conversion, value;
   try {
     std::string tmp = argv[1];
     conversion = tmp;
@@ -28,14 +39,9 @@ int main(int argc, char* argv[])
     value = tmp;
   } catch(...) {
     std::cout << "ERROR while reading arguments" << std::endl;
-    return 1;
+    return 0;
   }
-  // ConverterFactory* factory;
-  // std::cout << "created converter" << std::endl;
-  std::cout << "***DEBUG*** going to create object" << std::endl;
-  UnitConverter* converter = new DollarToEuroConverter(new Inversion(new DollarToEuroConverter()));
-  // UnitConverter* converter = ConverterFactory::instance()->create(conversion);
-  std::cout << "created converter" << std::endl;
+  */
 
 
   // From Assignment 2
@@ -67,9 +73,48 @@ int main(int argc, char* argv[])
     system("more README.md");
     return 0;
   }*/
-  std::cout << converter->toString() << " has converted " 
+  /*std::cout << converter->toString() << " has converted " 
     << value << " " << converter->fromUnit() << " to " 
-    << converter->convert(std::stod(value)) << " " << converter->toUnit() << std::endl;
+    << converter->convert(std::stod(value)) << " " << converter->toUnit() << std::endl;*/
+
+  
+  
+  /*UnitConverter* converter = ConverterFactory::instance()->create(conversion);
+  Command cmd(converter, &UnitConverter::convert, std::stod(value));
+  double conv_val = cmd.execute();
+  cmd.print_conv();
+  std::cout << '\n' << "converted ";
+  cmd.print_val();
+  std::cout << " to " << conv_val << '\n' << std::endl;*/
+
+
+  std::deque<Command> commands;
+
+  for (std::string line; std::getline(std::cin, line);) {
+    std::vector<std::string> elements;
+    split(line, ' ', elements);
+    if(elements.size()!=2) {
+      std::cout << "Usage: <converter> <int>" << std::endl;
+    } else {
+      UnitConverter* converter = ConverterFactory::instance()->create(elements[0]);
+      std::cout << "created converter" << std::endl;
+      Command cmd(converter, &UnitConverter::convert, stod(elements[1]));
+      commands.push_back(cmd);
+    }
+  }
+
+  for (size_t i = 0; i < commands.size(); i++)
+  {
+    double conv_val = commands.front().execute();
+    commands.front().print_conv();
+    std::cout << '\n' << "converted ";
+    commands.front().print_val();
+    std::cout << " to " << conv_val << '\n' << std::endl;
+
+    commands.pop_front();
+  }
+
+
   /* old stuff
   auto myConverter = std::make_shared<DollarToEuroConverter>();
   double aLotOfDollars = 10000;
