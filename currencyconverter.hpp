@@ -3,6 +3,8 @@
 
 #include "unitconverter.hpp"
 
+class CurrencyConverter;
+
 class CurrencyConverter : public UnitConverter {
   public:
     CurrencyConverter();

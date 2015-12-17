@@ -4,12 +4,22 @@ MilesToMeterConverter::MilesToMeterConverter()
 {
 }
 
+MilesToMeterConverter::MilesToMeterConverter(LengthConverter* converter) {
+  base_ = converter;
+}
+
+MilesToMeterConverter::MilesToMeterConverter(Inversion* converter) {
+  base_ = converter;
+}
+
 double MilesToMeterConverter::convert(double inMiles) const {
+  if(base_)
+    inMiles = base_->convert(inMiles);
   return inMiles*1609.344;
 }
 
 std::string MilesToMeterConverter::toString() const {
-  return "Miles to Meter Converter";
+  return fromUnit() + " to Meter Converter";
 }
 
 void MilesToMeterConverter::print() const {
@@ -17,6 +27,8 @@ void MilesToMeterConverter::print() const {
 }
 
 std::string MilesToMeterConverter::fromUnit() const {
+  if(base_)
+    return base_->fromUnit();
   return "Mile";
 }
 

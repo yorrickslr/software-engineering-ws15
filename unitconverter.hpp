@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 
+class UnitConverter;
+
 class UnitConverter
 {
   public:
@@ -15,7 +17,7 @@ class UnitConverter
     virtual std::string toUnit() const = 0;
     virtual UnitConverter* clone() = 0;
   protected:
-    std::shared_ptr<UnitConverter>
+    UnitConverter* base_;
 };
 
 #endif // CONVERTER_H

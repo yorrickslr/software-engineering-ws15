@@ -4,12 +4,22 @@ DollarToYenConverter::DollarToYenConverter()
 {
 }
 
-double DollarToYenConverter::convert(double toYen) const {
-  return toYen * 120.684499;
+DollarToYenConverter::DollarToYenConverter(CurrencyConverter* converter) {
+  base_ = converter;
+}
+
+DollarToYenConverter::DollarToYenConverter(Inversion* converter) {
+  base_ = converter;
+}
+
+double DollarToYenConverter::convert(double inputDollars) const {
+  if(base_)
+    inputDollars = base_->convert(inputDollars);
+  return inputDollars*120.684499;
 }
 
 std::string DollarToYenConverter::toString() const {
-  return "Dollar to Yen converter";
+  return fromUnit() + " to Yen Converter";
 }
 
 void DollarToYenConverter::print() const {
@@ -17,6 +27,8 @@ void DollarToYenConverter::print() const {
 }
 
 std::string DollarToYenConverter::fromUnit() const {
+  if(base_)
+    return base_->fromUnit();
   return "Dollar";
 }
 

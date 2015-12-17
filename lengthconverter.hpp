@@ -3,6 +3,8 @@
 
 #include "unitconverter.hpp"
 
+class LengthConverter;
+
 class LengthConverter : public UnitConverter {
   public:
     LengthConverter();

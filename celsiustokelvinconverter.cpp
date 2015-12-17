@@ -4,12 +4,18 @@ CelsiusToKelvinConverter::CelsiusToKelvinConverter()
 {
 }
 
+CelsiusToKelvinConverter::CelsiusToKelvinConverter(TemperatureConverter* converter) {
+  base_ = converter;
+}
+
 double CelsiusToKelvinConverter::convert(double inCelsius) const {
+  if(base_)
+    inCelsius = base_->convert(inCelsius);
   return inCelsius + 273.15;
 }
 
 std::string CelsiusToKelvinConverter::toString() const {
-  return "Celsius To Kelvin Converter";
+  return fromUnit() + " to Kelvin Converter";
 }
 
 void CelsiusToKelvinConverter::print() const {
@@ -17,6 +23,8 @@ void CelsiusToKelvinConverter::print() const {
 }
 
 std::string CelsiusToKelvinConverter::fromUnit() const {
+  if(base_)
+    return base_->fromUnit();
   return "Celsius";
 }
 

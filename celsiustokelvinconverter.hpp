@@ -6,6 +6,7 @@
 class CelsiusToKelvinConverter : public TemperatureConverter {
   public:
     CelsiusToKelvinConverter();
+    CelsiusToKelvinConverter(TemperatureConverter* converter);
     double convert(double inCelsius) const override;
     std::string toString() const override;
     void print() const override;

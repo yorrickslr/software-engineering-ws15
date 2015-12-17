@@ -4,12 +4,22 @@ EuroToDollarConverter::EuroToDollarConverter()
 {
 }
 
+EuroToDollarConverter::EuroToDollarConverter(CurrencyConverter* converter) {
+  base_ = converter;
+}
+
+EuroToDollarConverter::EuroToDollarConverter(Inversion* converter) {
+  base_ = converter;
+}
+
 double EuroToDollarConverter::convert(double inValue) const {
+  if(base_)
+    inValue = base_->convert(inValue);
   return inValue * 1.102796;
 }
 
 std::string EuroToDollarConverter::toString() const {
-  return "Euro to Dollar Converter";
+  return fromUnit() + " to Dollar Converter";
 }
 
 void EuroToDollarConverter::print() const {
@@ -17,6 +27,8 @@ void EuroToDollarConverter::print() const {
 }
 
 std::string EuroToDollarConverter::fromUnit() const {
+  if(base_)
+    return base_->fromUnit();
   return "Euro";
 }
 

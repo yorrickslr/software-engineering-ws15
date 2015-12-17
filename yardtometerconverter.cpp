@@ -4,12 +4,23 @@ YardToMeterConverter::YardToMeterConverter()
 {
 }
 
+YardToMeterConverter::YardToMeterConverter(LengthConverter* converter) {
+  base_ = converter;
+}
+
+YardToMeterConverter::YardToMeterConverter(Inversion* converter) {
+  base_ = converter;
+}
+
+
 double YardToMeterConverter::convert(double inYard) const {
+  if(base_)
+    inYard = base_->convert(inYard);
   return inYard*0.9144;
 }
 
 std::string YardToMeterConverter::toString() const {
-  return "Yard to Meter Converter";
+  return fromUnit() + " to Meter Converter";
 }
 
 void YardToMeterConverter::print() const {
@@ -17,6 +28,8 @@ void YardToMeterConverter::print() const {
 }
 
 std::string YardToMeterConverter::fromUnit() const {
+  if(base_)
+    return base_->fromUnit();
   return "Yard";
 }
 

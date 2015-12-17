@@ -3,6 +3,8 @@
 
 #include "unitconverter.hpp"
 
+class TemperatureConverter;
+
 class TemperatureConverter : public UnitConverter {
   public:
     TemperatureConverter();
