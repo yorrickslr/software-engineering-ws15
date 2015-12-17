@@ -3,7 +3,7 @@
 
 #include "unitconverter.hpp"
 
-class TemperatureConverter : virtual public UnitConverter {
+class TemperatureConverter : public UnitConverter {
   public:
     TemperatureConverter();
     virtual double convert(double inValue) const = 0;

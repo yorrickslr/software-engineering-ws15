@@ -3,7 +3,7 @@
 
 #include "unitconverter.hpp"
 
-class CurrencyConverter : virtual public UnitConverter {
+class CurrencyConverter : public UnitConverter {
   public:
     CurrencyConverter();
     virtual double convert(double inValue) const = 0;

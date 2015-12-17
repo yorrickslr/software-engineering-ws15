@@ -1,8 +1,9 @@
 #include "inchtocentimeterconverter.hpp"
 
-InchToCentimeterConverter::InchToCentimeterConverter()
-{
+InchToCentimeterConverter::InchToCentimeterConverter(){
+  
 }
+
 
 double InchToCentimeterConverter::convert(double inInch) const {
   return inInch*2.54;

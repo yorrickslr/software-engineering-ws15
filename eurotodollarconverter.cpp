@@ -2,7 +2,6 @@
 
 EuroToDollarConverter::EuroToDollarConverter()
 {
-  CurrencyDecorator{this};
 }
 
 double EuroToDollarConverter::convert(double inValue) const {

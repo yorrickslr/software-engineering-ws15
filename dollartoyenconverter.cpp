@@ -2,7 +2,6 @@
 
 DollarToYenConverter::DollarToYenConverter()
 {
-  CurrencyDecorator{this};
 }
 
 double DollarToYenConverter::convert(double toYen) const {

@@ -2,9 +2,8 @@
 #define INCHTOCENTIMETERCONVERTER_H
 
 #include "lengthconverter.hpp"
-#include "lengthdecorator.hpp"
 
-class InchToCentimeterConverter : public LengthConverter, public LengthDecorator {
+class InchToCentimeterConverter : public LengthConverter {
   public:
     InchToCentimeterConverter();
     double convert(double inInch) const override;

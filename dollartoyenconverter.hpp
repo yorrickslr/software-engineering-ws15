@@ -1,14 +1,11 @@
 #ifndef DOLLARTOYENCONVERTER_H
 #define DOLLARTOYENCONVERTER_H
 
-#include "currencydecorator.hpp"
 #include "currencyconverter.hpp"
 
-class DollarToYenConverter : public CurrencyDecorator, public CurrencyConverter {
+class DollarToYenConverter : public CurrencyConverter {
   public:
     DollarToYenConverter();
-    DollarToYenConverter(CurrencyConverter* converter) :
-      CurrencyDecorator{converter} {}
     double convert(double toYen) const override;
     std::string toString() const override;
     void print() const override;

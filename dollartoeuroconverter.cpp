@@ -1,22 +1,21 @@
 #include "dollartoeuroconverter.hpp"
 
+#include <string>
+
 DollarToEuroConverter::DollarToEuroConverter()
 {
-  std::cout << "***DEBUG*** nullptr?" << std::endl;
-  CurrencyDecorator{this};
 }
-
 
 /*In: double value of dollars
  *Out: Euro value of input dollars as of 2.11.15
  */
 
 double DollarToEuroConverter::convert(double inputDollars) const {
-  return CurrencyDecorator::convert(inputDollars)*0.906786;
+  return inputDollars*0.906786;
 }
 
 std::string DollarToEuroConverter::toString() const {
-  return "Dollar to " + CurrencyDecorator::toString();
+  return "Dollar to Euro Converter";
 }
 
 void DollarToEuroConverter::print() const {
@@ -24,7 +23,7 @@ void DollarToEuroConverter::print() const {
 }
 
 std::string DollarToEuroConverter::fromUnit() const {
-  return CurrencyDecorator::fromUnit();
+  return "Dollar";
 }
 
 std::string DollarToEuroConverter::toUnit() const {

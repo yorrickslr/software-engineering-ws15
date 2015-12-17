@@ -2,9 +2,8 @@
 #define FAHRENHEITTOCELSIUSCONVERTER_H
 
 #include "temperatureconverter.hpp"
-#include "temperaturedecorator.hpp"
 
-class FahrenheitToCelsiusConverter : public TemperatureConverter, public TemperatureDecorator {
+class FahrenheitToCelsiusConverter : public TemperatureConverter {
   public:
     FahrenheitToCelsiusConverter();
     double convert(double inFahrenheit) const override;
