@@ -122,6 +122,7 @@ int main(int argc, char* argv[])
     std::cout << '\n' << "converted ";
     commands.front().print_val();
     std::cout << " to " << conv_val << '\n' << std::endl;
+    commands.pop_front();
   }
 
 
