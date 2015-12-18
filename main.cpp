@@ -110,7 +110,7 @@ int main(int argc, char* argv[])
   }
 
 
-  for (size_t i = 0; i < commands.size(); i++)
+  while(!commands.empty())
   {
     std::cout << "Inside the matrix" << std::endl;
     Command tmp = commands.front();
