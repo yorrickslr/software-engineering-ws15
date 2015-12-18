@@ -9,6 +9,14 @@ InchToCentimeterConverter::InchToCentimeterConverter(LengthConverter* converter)
 }
 
 InchToCentimeterConverter::InchToCentimeterConverter(Inversion* converter) {
+  // quite ugly way to prevent other types of inversions
+  if(converter->fromUnit()!="Centimeter" 
+    && converter->fromUnit()!="Inch" 
+    && converter->fromUnit()!="Meter"
+    && converter->fromUnit()!="Yard"
+    && converter->fromUnit()!="Mile") {
+    throw std::logic_error("not a currency converter");
+  }
   base_ = converter;
 }
 

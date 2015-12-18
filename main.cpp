@@ -24,7 +24,6 @@ std::vector<std::string> &split(const std::string &s, char delim, std::vector<st
     std::string item;
     while (std::getline(ss, item, delim)) {
         elems.push_back(item);
-        std::cout << item << std::endl;
     }
     return elems;
 }
@@ -90,28 +89,39 @@ int main(int argc, char* argv[])
 
   std::deque<Command> commands;
 
+  std::cout << '\n' << "Due to bad voodoo the Ctrl+D command is not working. To exit the loop type in \" exit\" " << '\n' << std::endl;
+  std::cout << "Usage: <converter> <int>" << '\n' << std::endl;
+
   for (std::string line; std::getline(std::cin, line);) {
     std::vector<std::string> elements;
     split(line, ' ', elements);
     if(elements.size()!=2) {
-      std::cout << "Usage: <converter> <int>" << std::endl;
+      if("exit" == elements.front()) {
+        std::cout << "Elvis has left the building!" << std::endl;
+        break;
+      } else {
+        std::cout << "You need to give two arguments: the converter name and the value" << std::endl;
+      }
     } else {
       UnitConverter* converter = ConverterFactory::instance()->create(elements[0]);
-      std::cout << "created converter" << std::endl;
       Command cmd(converter, &UnitConverter::convert, stod(elements[1]));
       commands.push_back(cmd);
     }
   }
 
+
   for (size_t i = 0; i < commands.size(); i++)
   {
-    double conv_val = commands.front().execute();
+    std::cout << "Inside the matrix" << std::endl;
+    Command tmp = commands.front();
+    std::cout << "DEBUG 1" << std::endl;
+    double conv_val = 0;
+    conv_val = tmp.execute();
+    std::cout << "DEBUG 2" << std::endl;
     commands.front().print_conv();
     std::cout << '\n' << "converted ";
     commands.front().print_val();
     std::cout << " to " << conv_val << '\n' << std::endl;
-
-    commands.pop_front();
   }
 
 

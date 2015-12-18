@@ -9,6 +9,12 @@ DollarToYenConverter::DollarToYenConverter(CurrencyConverter* converter) {
 }
 
 DollarToYenConverter::DollarToYenConverter(Inversion* converter) {
+  // quite ugly way to prevent other types of inversions
+  if(converter->fromUnit()!="Dollar" 
+    && converter->fromUnit()!="Euro" 
+    && converter->fromUnit()!="Yen") {
+    throw std::logic_error("not a currency converter");
+  }
   base_ = converter;
 }
 
