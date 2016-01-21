@@ -2,17 +2,17 @@
 
 #include "tinytest.h"
 
-#include "../dollartoeuroconverter.hpp"
-#include "../eurotodollarconverter.hpp"
-#include "../dollartoyenconverter.hpp"
+#include "dollartoeuroconverter.hpp"
+#include "eurotodollarconverter.hpp"
+#include "dollartoyenconverter.hpp"
 
-#include "../miletometerconverter.hpp"
-#include "../yardtometerconverter.hpp"
-#include "../inchtocentimeterconverter.hpp"
+#include "miletometerconverter.hpp"
+#include "yardtometerconverter.hpp"
+#include "inchtocentimeterconverter.hpp"
  
-#include "../celsiustofahrenheitconverter.hpp"
-#include "../fahrenheittocelsiusconverter.hpp"
-#include "../celsiustokelvinconverter.hpp"
+#include "celsiustofahrenheitconverter.hpp"
+#include "fahrenheittocelsiusconverter.hpp"
+#include "celsiustokelvinconverter.hpp"
 
 // CurrencyConverter
 

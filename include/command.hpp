@@ -34,7 +34,6 @@ public:
     std::cout << conv_param << " ";
   }
 
-
 private:
   UnitConverter* converter_;
   Method method_;

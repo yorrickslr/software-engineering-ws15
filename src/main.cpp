@@ -89,7 +89,7 @@ int main(int argc, char* argv[])
 
   std::deque<Command> commands;
 
-  std::cout << '\n' << "Due to bad voodoo the Ctrl+D command is not working. To exit the loop type in \" exit\" " << '\n' << std::endl;
+  std::cout << '\n' << "Due to bad voodoo the Ctrl+D command is not working. To exit the loop type in \"exit\" " << '\n' << std::endl;
   std::cout << "Usage: <converter> <int>" << '\n' << std::endl;
 
   for (std::string line; std::getline(std::cin, line);) {
@@ -110,19 +110,25 @@ int main(int argc, char* argv[])
   }
 
 
-  while(!commands.empty())
-  {
-    std::cout << "Inside the matrix" << std::endl;
-    Command tmp = commands.front();
-    std::cout << "DEBUG 1" << std::endl;
-    double conv_val = 0;
-    conv_val = tmp.execute();
-    std::cout << "DEBUG 2" << std::endl;
-    commands.front().print_conv();
-    std::cout << '\n' << "converted ";
-    commands.front().print_val();
-    std::cout << " to " << conv_val << '\n' << std::endl;
-    commands.pop_front();
+  /*for (size_t i = 0; i < commands.size(); i++) { 
+    std::cout << "commands.size() = " << commands.size() << std::endl; 
+    double conv_val = 0; 
+    conv_val = commands[i].execute(); 
+    std::cout << "DEBUG 2" << std::endl; 
+    commands[i].print_conv(); 
+    std::cout << '\n' << "converted "; 
+    commands[i].print_val(); 
+    std::cout << " to " << conv_val << '\n' << std::endl; 
+  }*/
+
+  for(Command cmd : commands) {
+    std::cout << "***DEBUG*** me dumping the core?" << std::endl;
+    double conv_val = cmd.execute();
+    std::cout << "***DEBUG*** itsa not me!" << std::endl;
+    cmd.print_conv();
+    std::cout << std::endl << "converted "; 
+    cmd.print_val();
+    std::cout << " to " << conv_val << '\n' << std::endl; 
   }
 
 
