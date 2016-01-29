@@ -14,6 +14,7 @@
 
 #include <memory>
 #include <map>
+#include "awesomeexception.cpp"
 
 
 class ConverterFactory
@@ -33,7 +34,7 @@ public:
     {
       return iter->second->clone();
     }
-    std::cout << "Well, we are very sorry, but this converter is not supported. Try again!" << std::endl;
+    throw Awesomeexception("Well, we are very sorry, but this converter is not supported. Try again!");
     exit(1);
     return nullptr;
   }

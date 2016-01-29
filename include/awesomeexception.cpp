@@ -3,7 +3,7 @@
 
 #include <exception>
 
-class Awesomeexception : public exception {
+class Awesomeexception : public std::exception {
   public:
     Awesomeexception(char* peter) : errText_{peter} {}
 

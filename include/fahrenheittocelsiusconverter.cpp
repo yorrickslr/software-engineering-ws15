@@ -9,6 +9,9 @@ FahrenheitToCelsiusConverter::FahrenheitToCelsiusConverter(TemperatureConverter*
 }
 
 double FahrenheitToCelsiusConverter::convert(double inFahrenheit) const {
+  if (-459.4 > inFahrenheit) {
+    throw Awesomeexception("Congratz! You went below absolute zero. We hope, you are proud of yourself!")
+  }
   if(base_)
     inFahrenheit = base_->convert(inFahrenheit);
   return (inFahrenheit-32.0)*(5.0/9.0);

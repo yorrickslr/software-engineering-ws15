@@ -9,6 +9,9 @@ CelsiusToFahrenheitConverter::CelsiusToFahrenheitConverter(TemperatureConverter*
 }
 
 double CelsiusToFahrenheitConverter::convert(double inCelsius) const {
+  if (-273 > inCelsius) {
+    throw Awesomeexception("Congratz! You went below absolute zero. We hope, you are proud of yourself!")
+  }
   if(base_)
     inCelsius = base_->convert(inCelsius);
   return inCelsius*1.8 + 32;

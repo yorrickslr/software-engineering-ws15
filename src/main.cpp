@@ -17,6 +17,7 @@
 
 #include "converterfactory.hpp"
 #include "command.hpp"
+#include "awesomeexception.cpp"
 
 //split method as on http://stackoverflow.com/questions/236129/split-a-string-in-c
 std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems) {
@@ -27,6 +28,7 @@ std::vector<std::string> &split(const std::string &s, char delim, std::vector<st
     }
     return elems;
 }
+
 
 int main(int argc, char* argv[])
 {
@@ -100,7 +102,7 @@ int main(int argc, char* argv[])
         std::cout << "Elvis has left the building!" << std::endl;
         break;
       } else {
-        std::cout << "You need to give two arguments: the converter name and the value" << std::endl;
+        throw Awesomeexception("You need to give two arguments: the converter name and the value");
       }
     } else {
       UnitConverter* converter = ConverterFactory::instance()->create(elements[0]);
@@ -121,10 +123,21 @@ int main(int argc, char* argv[])
     std::cout << " to " << conv_val << '\n' << std::endl; 
   }*/
 
+  /*while(!commands.empty()) {
+      //std::cout << "***DEBUG*** me dumping the core?" << std::endl;
+    double conv_val = commands.front().execute();
+    //std::cout << "***DEBUG*** itsa not me!" << std::endl;
+    commands.front().print_conv();
+    std::cout << std::endl << "converted "; 
+    commands.front().print_val();
+    std::cout << " to " << conv_val << '\n' << std::endl;
+    commands.pop_front();
+  }*/
+
   for(Command cmd : commands) {
-    std::cout << "***DEBUG*** me dumping the core?" << std::endl;
+    //std::cout << "***DEBUG*** me dumping the core?" << std::endl;
     double conv_val = cmd.execute();
-    std::cout << "***DEBUG*** itsa not me!" << std::endl;
+    //std::cout << "***DEBUG*** itsa not me!" << std::endl;
     cmd.print_conv();
     std::cout << std::endl << "converted "; 
     cmd.print_val();
