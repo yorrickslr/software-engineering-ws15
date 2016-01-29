@@ -2,6 +2,7 @@
 #define CELSIUSTOFAHRENHEITCONVERTER_H
 
 #include "temperatureconverter.hpp"
+#include "awesomeexception.cpp"
 
 class CelsiusToFahrenheitConverter : public TemperatureConverter {
   public:

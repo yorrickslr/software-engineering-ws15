@@ -102,7 +102,7 @@ int main(int argc, char* argv[])
         std::cout << "Elvis has left the building!" << std::endl;
         break;
       } else {
-        throw Awesomeexception("You need to give two arguments: the converter name and the value");
+        std::cout << "You need to give two arguments: the converter name and the value" << std::endl;
       }
     } else {
       UnitConverter* converter = ConverterFactory::instance()->create(elements[0]);

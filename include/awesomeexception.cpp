@@ -5,7 +5,7 @@
 
 class Awesomeexception : public std::exception {
   public:
-    Awesomeexception(char* peter) : errText_{peter} {}
+    Awesomeexception(char* error) : errText_{error} {}
 
     virtual const char* what() const throw() {
       return errText_;
