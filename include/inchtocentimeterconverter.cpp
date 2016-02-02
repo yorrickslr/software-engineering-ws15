@@ -2,6 +2,7 @@
 
 InchToCentimeterConverter::InchToCentimeterConverter()
 {
+  base_ = nullptr;
 }
 
 InchToCentimeterConverter::InchToCentimeterConverter(LengthConverter* converter) {
@@ -15,7 +16,7 @@ InchToCentimeterConverter::InchToCentimeterConverter(Inversion* converter) {
     && converter->fromUnit()!="Meter"
     && converter->fromUnit()!="Yard"
     && converter->fromUnit()!="Mile") {
-    throw std::logic_error("not a currency converter");
+    throw std::logic_error("not a length converter");
   }
   base_ = converter;
 }

@@ -2,6 +2,7 @@
 
 DollarToYenConverter::DollarToYenConverter()
 {
+  base_ = nullptr;
 }
 
 DollarToYenConverter::DollarToYenConverter(CurrencyConverter* converter) {

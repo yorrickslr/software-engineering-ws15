@@ -2,6 +2,7 @@
 
 CelsiusToKelvinConverter::CelsiusToKelvinConverter()
 {
+  base_ = nullptr;
 }
 
 CelsiusToKelvinConverter::CelsiusToKelvinConverter(TemperatureConverter* converter) {
@@ -10,7 +11,7 @@ CelsiusToKelvinConverter::CelsiusToKelvinConverter(TemperatureConverter* convert
 
 double CelsiusToKelvinConverter::convert(double inCelsius) const {
   if (-273 > inCelsius) {
-    throw Awesomeexception("Congratz! You went below absolute zero. We hope, you are proud of yourself!");
+    throw std::logic_error("Congratz! You went below absolute zero. We hope, you are proud of yourself!");
   }
   if(base_)
     inCelsius = base_->convert(inCelsius);

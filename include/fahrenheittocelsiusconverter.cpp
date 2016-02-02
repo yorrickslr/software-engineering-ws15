@@ -2,6 +2,7 @@
 
 FahrenheitToCelsiusConverter::FahrenheitToCelsiusConverter()
 {
+  base_ = nullptr;
 }
 
 FahrenheitToCelsiusConverter::FahrenheitToCelsiusConverter(TemperatureConverter* converter) {
@@ -10,7 +11,7 @@ FahrenheitToCelsiusConverter::FahrenheitToCelsiusConverter(TemperatureConverter*
 
 double FahrenheitToCelsiusConverter::convert(double inFahrenheit) const {
   if (-459.4 > inFahrenheit) {
-    throw Awesomeexception("Congratz! You went below absolute zero. We hope, you are proud of yourself!");
+    throw std::logic_error("Congratz! You went below absolute zero. We hope, you are proud of yourself!");
   }
   if(base_)
     inFahrenheit = base_->convert(inFahrenheit);

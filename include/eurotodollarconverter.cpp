@@ -2,6 +2,7 @@
 
 EuroToDollarConverter::EuroToDollarConverter()
 {
+  base_ = nullptr;
 }
 
 EuroToDollarConverter::EuroToDollarConverter(CurrencyConverter* converter) {

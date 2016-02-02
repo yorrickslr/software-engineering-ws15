@@ -2,6 +2,7 @@
 
 MilesToMeterConverter::MilesToMeterConverter()
 {
+  base_ = nullptr;
 }
 
 MilesToMeterConverter::MilesToMeterConverter(LengthConverter* converter) {
@@ -15,7 +16,7 @@ MilesToMeterConverter::MilesToMeterConverter(Inversion* converter) {
     && converter->fromUnit()!="Meter"
     && converter->fromUnit()!="Yard"
     && converter->fromUnit()!="Mile") {
-    throw std::logic_error("not a currency converter");
+    throw std::logic_error("not a length converter");
   }
   base_ = converter;
 }

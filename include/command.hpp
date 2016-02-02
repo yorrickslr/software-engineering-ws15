@@ -13,7 +13,7 @@
 #include "fahrenheittocelsiusconverter.hpp"
 #include "celsiustokelvinconverter.hpp"
 
-#include "awesomeexception.cpp"
+#include <exception>
 
 class Command
 {
@@ -27,7 +27,7 @@ public:
   double execute() {
     try {
     return (converter_->*method_) (conv_param);
-    } catch (Awesomeexception& e) {
+    } catch (std::exception& e) {
       std::cout << e.what() << std::endl;
     }
   }

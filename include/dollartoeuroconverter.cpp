@@ -5,6 +5,7 @@
 
 DollarToEuroConverter::DollarToEuroConverter()
 {
+  base_ = nullptr;
 }
 
 DollarToEuroConverter::DollarToEuroConverter(CurrencyConverter* converter) {

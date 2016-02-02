@@ -2,7 +2,7 @@
 #define CELSIUSTOKELVINCONVERTER_H
 
 #include "temperatureconverter.hpp"
-#include "awesomeexception.cpp"
+#include <exception>
 
 class CelsiusToKelvinConverter : public TemperatureConverter {
   public:
