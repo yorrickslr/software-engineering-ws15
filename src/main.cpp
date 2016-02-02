@@ -95,6 +95,9 @@ int main(int argc, char* argv[])
   std::cout << "Usage: <converter> <int>" << '\n' << std::endl;
 
   for (std::string line; std::getline(std::cin, line);) {
+    if(line=="") {
+      continue;
+    }
     std::vector<std::string> elements;
     split(line, ' ', elements);
     if(elements.size()!=2) {
@@ -105,9 +108,13 @@ int main(int argc, char* argv[])
         std::cout << "You need to give two arguments: the converter name and the value" << std::endl;
       }
     } else {
-      UnitConverter* converter = ConverterFactory::instance()->create(elements[0]);
-      Command cmd(converter, &UnitConverter::convert, stod(elements[1]));
-      commands.push_back(cmd);
+      try {
+        UnitConverter* converter = ConverterFactory::instance()->create(elements[0]);
+        Command cmd(converter, &UnitConverter::convert, stod(elements[1]));
+        commands.push_back(cmd);
+      } catch(...) {
+        std::cerr << "ERROR: cannot create converter instance (maybe unknown converter?)" << std::endl;
+      }
     }
   }
 
