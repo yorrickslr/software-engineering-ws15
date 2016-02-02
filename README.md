@@ -8,16 +8,16 @@ to compile and test the program.
 ## Possible conversions
 
   Currency
-   > DollarToEuro
-   > EuroToDollar
-   > DollarToYen
+   > DollarToEuro  
+   > EuroToDollar  
+   > DollarToYen  
 
   Length
-   > MileToMeter
-   > YardToMeter
-   > InchToCentimeter
+   > MileToMeter  
+   > YardToMeter  
+   > InchToCentimeter  
 
   Temperature
-   > CelsiusToFahrenheit
-   > FahrenheitToCelsius
-   > CelsiusToKelvin
+   > CelsiusToFahrenheit  
+   > FahrenheitToCelsius  
+   > CelsiusToKelvin  
