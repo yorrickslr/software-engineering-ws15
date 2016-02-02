@@ -27,10 +27,14 @@ int main(int argc, char* argv[])
     return 0;
   }
 
-  UnitConverter* converter = ConverterFactory::instance()->create(conversion);
-  std::cout << "created converter" << std::endl;
-  std::cout << converter->toString() << " has converted " 
-    << value << " " << converter->fromUnit() << " to " 
-    << converter->convert(std::stod(value)) << " " << converter->toUnit() << std::endl;
+  try {
+    UnitConverter* converter = ConverterFactory::instance()->create(conversion);
+    std::cout << "created converter" << std::endl;
+    std::cout << converter->toString() << " has converted " 
+     << value << " " << converter->fromUnit() << " to " 
+     << converter->convert(std::stod(value)) << " " << converter->toUnit() << std::endl;
+  } catch(std::exception& e) {
+    std::cerr << "ERROR: " << e.what() << std::endl;
+  }
   return 0;
 }

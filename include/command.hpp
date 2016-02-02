@@ -26,9 +26,9 @@ public:
 
   double execute() {
     try {
-    return (converter_->*method_) (conv_param);
-    } catch (std::exception& e) {
-      std::cout << e.what() << std::endl;
+      return (converter_->*method_) (conv_param);
+    } catch (std::logic_error& e) {
+      throw;
     }
   }
 

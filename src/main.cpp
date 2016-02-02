@@ -135,13 +135,17 @@ int main(int argc, char* argv[])
   }*/
 
   for(Command cmd : commands) {
-    //std::cout << "***DEBUG*** me dumping the core?" << std::endl;
-    double conv_val = cmd.execute();
-    //std::cout << "***DEBUG*** itsa not me!" << std::endl;
-    cmd.print_conv();
-    std::cout << std::endl << "converted "; 
-    cmd.print_val();
-    std::cout << " to " << conv_val << '\n' << std::endl; 
+    try {
+      //std::cout << "***DEBUG*** me dumping the core?" << std::endl;
+      double conv_val = cmd.execute();
+      //std::cout << "***DEBUG*** itsa not me!" << std::endl;
+      cmd.print_conv();
+      std::cout << std::endl << "converted "; 
+      cmd.print_val();
+      std::cout << " to " << conv_val << '\n' << std::endl;
+    } catch(std::exception& e) {
+      std::cerr << "ERROR: " << e.what() << std::endl;
+    }
   }
 
 
